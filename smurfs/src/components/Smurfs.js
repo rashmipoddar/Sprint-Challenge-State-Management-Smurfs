@@ -7,7 +7,7 @@ import Smurf from './Smurf';
 const Smurfs = props => {
   useEffect(() => {
     props.fetchSmurfs();
-  }, [])
+  }, [props.smurfs.length])
 
   return (
     <>
