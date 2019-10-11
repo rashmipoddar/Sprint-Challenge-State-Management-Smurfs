@@ -7,7 +7,6 @@ const SmurfForm = (props) => {
   const [ name, setName ] = useState('');
   const [ age, setAge ] = useState();
   const [ height, setHeight ] = useState();
-  const [ id, setId ] = useState();
 
   const handleName = event => {
     setName(event.target.value);
@@ -21,15 +20,10 @@ const SmurfForm = (props) => {
     setHeight(event.target.value);
   }
 
-  const handleId = event => {
-    setId(event.target.value);
-  }
-
   const handleClick = (event) => {
     event.preventDefault();
-    console.log(id, name, age, height);
-    props.postSmurf({id, name, age, height});
-    setId('');
+    console.log(name, age, height);
+    props.postSmurf({name, age, height});
     setName('');
     setAge('');
     setHeight('');
@@ -37,13 +31,6 @@ const SmurfForm = (props) => {
 
   return (
     <form>
-      <input 
-        name='id'
-        type='id'
-        placeholder='Id'
-        value={id}
-        onChange={handleId}
-      />
       <input 
         name='name'
         type='name'
