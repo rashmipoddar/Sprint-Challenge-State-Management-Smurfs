@@ -30,7 +30,6 @@ export const postSmurf = (smurfData) => dispatch => {
   axios.post('http://localhost:3333/smurfs', smurfData)
     .then(response => {
       console.log('The post response is ', response);
-      // fetchSmurfs();
       dispatch({type: POST_SMURF, payload: {
         smurf: response.data,
         error: null,
@@ -46,3 +45,29 @@ export const postSmurf = (smurfData) => dispatch => {
       }})
     })
 }
+
+export const DELETE_SMURF = 'DELETE_SMURF';
+
+export const deleteSmurf = (id) => dispatch => {
+  dispatch({type: DELETE_SMURF, payload: {
+    error: null,
+    smurf: null
+  }})
+
+  axios.delete(`http://localhost:3333/smurfs/${id}`)
+  .then(response => {
+    console.log('The delete response is ', response);
+    dispatch({type: DELETE_SMURF, payload: {
+      error: null,
+      smurf: response.data
+    }})
+  })
+  .catch(error => {
+    console.log(error);
+    dispatch({type: DELETE_SMURF, payload: {
+      error: error,
+      smurf: null
+    }})
+  })
+}
+

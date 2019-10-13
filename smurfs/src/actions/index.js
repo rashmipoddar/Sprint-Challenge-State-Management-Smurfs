@@ -4,7 +4,9 @@ export {
   FETCH_SMURFS_FAILED, 
   fetchSmurfs,
   POST_SMURF,
-  postSmurf
+  postSmurf,
+  DELETE_SMURF,
+  deleteSmurf
 } from './smurfsAction';
 
 
