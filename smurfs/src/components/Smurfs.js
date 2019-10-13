@@ -7,7 +7,7 @@ import Smurf from './Smurf';
 const Smurfs = props => {
   useEffect(() => {
     props.fetchSmurfs();
-  }, [props.smurfs.length])
+  }, [])
 
   return (
     <>
@@ -26,9 +26,9 @@ const Smurfs = props => {
 
 const mapStateToProps = state => {
   return {
-    isFetching: state.getSmurfsReducer.isFetching,
-    error: state.getSmurfsReducer.error,
-    smurfs: state.getSmurfsReducer.smurfs
+    isFetching: state.smurfsReducer.isFetching,
+    error: state.smurfsReducer.error,
+    smurfs: state.smurfsReducer.smurfs
   }
 }
 

@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
 
-import { getSmurfsReducer } from './getSmurfsReducer'; 
-import { postSmurfReducer } from './postSmurfReducer';
-
+import { smurfsReducer } from './smurfsReducer'; 
 
 export default combineReducers ({
-  getSmurfsReducer,
-  postSmurfReducer
+  smurfsReducer,
+
 });
