@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { fetchSmurfs } from '../actions';
 import { deleteSmurf } from '../actions';
+import { editSmurf } from '../actions';
 import Smurf from './Smurf';
 
 const Smurfs = props => {
@@ -17,7 +18,12 @@ const Smurfs = props => {
       <div>
         {props.smurfs.map(smurf => {
           return (
-            <Smurf key={smurf.id} smurf={smurf} deleteSmurf={props.deleteSmurf} />
+            <Smurf 
+              key={smurf.id} 
+              smurf={smurf} 
+              deleteSmurf={props.deleteSmurf} 
+              editSmurf={props.editSmurf}
+            />
           )
         })}
       </div>
@@ -33,4 +39,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {fetchSmurfs, deleteSmurf})(Smurfs);
+export default connect(mapStateToProps, {fetchSmurfs, deleteSmurf, editSmurf})(Smurfs);

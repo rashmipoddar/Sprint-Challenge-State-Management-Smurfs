@@ -3,7 +3,8 @@ import {
   FETCH_SMURFS_SUCCESSFUL, 
   FETCH_SMURFS_FAILED,
   POST_SMURF, 
-  DELETE_SMURF
+  DELETE_SMURF,
+  EDIT_SMURF
 } from '../actions';
 
 const initialState = {
@@ -71,6 +72,13 @@ export const smurfsReducer = (state = initialState, action) => {
         return {
           ...state
         }
+      }
+    }
+    case DELETE_SMURF : {
+      const error = action.payload.error;
+      const smurf = action.payload.smurf;
+      return {
+        ...state
       }
     }
     default: {

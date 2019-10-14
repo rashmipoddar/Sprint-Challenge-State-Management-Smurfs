@@ -71,3 +71,19 @@ export const deleteSmurf = (id) => dispatch => {
   })
 }
 
+
+export const EDIT_SMURF = 'EDIT_SMURF';
+
+export const editSmurf = id => dispatch => {
+  dispatch({type: EDIT_SMURF, payload: {
+    error: null,
+    smurf: null
+  }})
+  axios.put(`http://localhost:3333/smurfs/${id}`)
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+}

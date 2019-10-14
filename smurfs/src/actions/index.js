@@ -6,7 +6,9 @@ export {
   POST_SMURF,
   postSmurf,
   DELETE_SMURF,
-  deleteSmurf
+  deleteSmurf,
+  EDIT_SMURF,
+  editSmurf
 } from './smurfsAction';
 
 
