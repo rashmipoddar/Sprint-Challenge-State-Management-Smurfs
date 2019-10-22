@@ -5,8 +5,8 @@ import { postSmurf } from '../actions';
 
 const SmurfForm = (props) => {
   const [ name, setName ] = useState('');
-  const [ age, setAge ] = useState();
-  const [ height, setHeight ] = useState();
+  const [ age, setAge ] = useState('');
+  const [ height, setHeight ] = useState('');
 
   const handleName = event => {
     setName(event.target.value);
@@ -59,8 +59,7 @@ const SmurfForm = (props) => {
 
 const mapStateToProps = state => {
   return {
-    isPosting: state.postSmurfReducer.isPosting,
-    error: state.postSmurfReducer.error
+    error: state.smurfsReducer.error
   }
 }
 

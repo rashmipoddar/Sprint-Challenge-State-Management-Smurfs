@@ -2,12 +2,14 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchSmurfs } from '../actions';
+import { deleteSmurf } from '../actions';
+import { editSmurf } from '../actions';
 import Smurf from './Smurf';
 
 const Smurfs = props => {
   useEffect(() => {
     props.fetchSmurfs();
-  }, [props.smurfs.length])
+  }, [])
 
   return (
     <>
@@ -16,7 +18,12 @@ const Smurfs = props => {
       <div>
         {props.smurfs.map(smurf => {
           return (
-            <Smurf key={smurf.id} smurf={smurf} />
+            <Smurf 
+              key={smurf.id} 
+              smurf={smurf} 
+              deleteSmurf={props.deleteSmurf} 
+              editSmurf={props.editSmurf}
+            />
           )
         })}
       </div>
@@ -26,10 +33,10 @@ const Smurfs = props => {
 
 const mapStateToProps = state => {
   return {
-    isFetching: state.getSmurfsReducer.isFetching,
-    error: state.getSmurfsReducer.error,
-    smurfs: state.getSmurfsReducer.smurfs
+    isFetching: state.smurfsReducer.isFetching,
+    error: state.smurfsReducer.error,
+    smurfs: state.smurfsReducer.smurfs
   }
 }
 
-export default connect(mapStateToProps, {fetchSmurfs})(Smurfs);
+export default connect(mapStateToProps, {fetchSmurfs, deleteSmurf, editSmurf})(Smurfs);
